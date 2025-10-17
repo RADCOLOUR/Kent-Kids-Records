@@ -192,8 +192,107 @@
 }
 
 .vertical-divider {
-  margin: 50px;
-  width: 2px;
-  background-color: #ff007f; 
-  height: 350px;
+  flex: 0 0 3px;             /* fixed thickness, will not grow or shrink */
+  align-self: stretch;       /* stretch to the tallest sibling */
+  background: linear-gradient(180deg, #ff007f, #ff66b3);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(255,0,127,0.6), 0 0 20px rgba(255,0,127,0.25);
+  margin: 50px;                 /* no extra margin to avoid unexpected gaps */
+  opacity: 1;
+}
+
+
+.releases-section {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #0a0a0a;
+  color: #fff;
+  font-family: 'Unbounded', sans-serif;
+}
+
+.releases-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+/* Flexbox layout for releases */
+.releases-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* Release card style */
+.release-card {
+  flex: 1 1 300px;
+  max-width: 340px;
+  background-color: #111;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.release-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.release-card h2 {
+  font-family: 'Unbounded', sans-serif;
+  color: #fff;
+  margin: 10px 0;
+}
+
+.release-card p {
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+/* Hover effect (restored) */
+.release-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff007f;
+}
+
+/* Release links */
+.release-links a {
+  margin: 0 6px;
+  color: #ff007f;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.release-links a:hover {
+  color: #ff66b3;
+}
+
+/* Vertical divider */
+.vertical-divider {
+  display: inline-block;
+  width: 3px;
+  background: linear-gradient(180deg, #ff007f, #ff66b3);
+  opacity: 0.8;
+  align-self: stretch;
+  margin: 0 10px;
+  box-shadow: 0 0 10px #ff007f;
+}
+
+/* Responsive: hide dividers on mobile */
+@media (max-width: 640px) {
+  .vertical-divider {
+    display: none;
+  }
+  .release-card {
+    flex-basis: 100%;
+  }
 }
